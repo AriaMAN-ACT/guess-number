@@ -5,7 +5,7 @@ import Card from "../components/Card";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
 
-const StartGameScreen = () => {
+const StartGameScreen = ({onStartGamePress}) => {
     const [number, setNumber] = useState('');
     const [isConfirm, setConfirm] = useState(false);
     const [confirmedNumber, setConfirmedNumber] = useState(0);
@@ -41,7 +41,7 @@ const StartGameScreen = () => {
             <Card style={styles.outputContainer}>
                 <Text style={styles.outputText}>You Selected:</Text>
                 <NumberContainer>{confirmedNumber}</NumberContainer>
-                <Button title="START GAME"/>
+                <Button title="START GAME" onPress={() => onStartGamePress(confirmedNumber)}/>
             </Card>
         );
     }
@@ -53,7 +53,7 @@ const StartGameScreen = () => {
                 <Card style={styles.inputContainer}>
                     <Text style={styles.inputText}>Select a Number</Text>
                     <Input maxLength={2} keyboardType="number-pad" value={number} onChangeText={onNumberChange}
-                           editable={!isConfirm}/>
+                           editable={!isConfirm} onSubmitEditing={onConfirmPress}/>
                     <View style={styles.buttonContainer}>
                         <View style={styles.button}>
                             <Button title="Reset" color="#058ED9" onPress={onResetPress}/>
