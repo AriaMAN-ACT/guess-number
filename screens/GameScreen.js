@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Alert, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, Alert, ScrollView, FlatList} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 
 import NumberContainer from "../components/NumberContainer";
@@ -35,7 +35,7 @@ const GameScreen = ({userNumber, onGameOver}) => {
         }
         setMin(guess + 1);
         setGuess(generateRandomNumber(guess + 1, max));
-        setGuesses(guesses => [guess, ...guesses]);
+        setGuesses(guesses => [guess.toString(), ...guesses]);
     };
 
     const onLowerPress = () => {
@@ -48,7 +48,7 @@ const GameScreen = ({userNumber, onGameOver}) => {
         }
         setMax(guess);
         setGuess(generateRandomNumber(min, guess));
-        setGuesses(guesses => [guess, ...guesses]);
+        setGuesses(guesses => [guess.toString(), ...guesses]);
     };
 
     return (
@@ -65,12 +65,8 @@ const GameScreen = ({userNumber, onGameOver}) => {
                     </MainButton>
                 </View>
             </Card>
-            <ScrollView style={styles.guessList}>
-                <View style={styles.guessListContainer}>
-                    <Text style={styles.smallTitle}>Past Guesses</Text>
-                    {guesses.map(guess => (<GuessItem guess={guess} isHigher={guess > userNumber} key={guess}/>))}
-                </View>
-            </ScrollView>
+            <Text style={styles.smallTitle}>Past Guesses</Text>
+            <FlatList data={guesses} renderItem={GuessItem.bind(this, userNumber)} keyExtractor={item => item}/>
         </View>
     );
 };

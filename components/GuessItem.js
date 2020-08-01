@@ -2,12 +2,15 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 
-const GuessItem = ({guess, isHigher}) => {
+const GuessItem = (userNumber, itemData) => {
     return (
-        <View style={{...styles.container, ...(isHigher ? styles.higherContainer : styles.lowerContainer)}}>
-            <Text style={styles.text}>{guess}</Text>
+        <View style={{
+            ...styles.container,
+            ...(userNumber < itemData.item ? styles.higherContainer : styles.lowerContainer)
+        }}>
+            <Text style={styles.text}>{itemData.item}</Text>
             {
-                isHigher ?
+                userNumber < itemData.item ?
                     <AntDesign name="caretup" size={20} color="#FCF7F8"/> :
                     <AntDesign name="caretdown" size={20} color="#FCF7F8"/>
             }
