@@ -8,15 +8,17 @@ const generateRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 };
 
-const GameScreen = ({userNumber}) => {
+const GameScreen = ({userNumber, onGameOver}) => {
     const [min, setMin] = useState(1);
     const [max, setMax] = useState(100);
 
     const [guess, setGuess] = useState(generateRandomNumber(min, max));
 
+    const [rounds, setRounds] = useState(0);
+
     useEffect(() => {
         if (userNumber === guess) {
-            // go to game over screen
+            onGameOver(r => r + 1);
         }
     });
 
@@ -24,26 +26,26 @@ const GameScreen = ({userNumber}) => {
         if (guess + 1 > userNumber) {
             Alert.alert('Do Not Cheat!', 'The guess number is lower but you have pressed the higher button.', [{
                 text: 'Continue',
-                style: 'destructive',
-                onPress: onLowerPress
+                style: 'destructive'
             }]);
             return;
         }
         setMin(guess + 1);
         setGuess(generateRandomNumber(guess + 1, max));
+        setRounds(rounds + 1);
     };
 
     const onLowerPress = () => {
-        if (guess < userNumber) {
+        if (guess - 1 < userNumber) {
             Alert.alert('Do Not Cheat!', 'The guess number is higher but you have pressed the lower button.', [{
                 text: 'Continue',
-                style: 'destructive',
-                onPress: onHigherPress
+                style: 'destructive'
             }]);
             return;
         }
         setMax(guess);
         setGuess(generateRandomNumber(min, guess));
+        setRounds(rounds + 1);
     };
 
     return (

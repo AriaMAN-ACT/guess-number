@@ -5,14 +5,23 @@ import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import Screens from "./models/Screens";
+import GameOverScreen from "./screens/GameOverScreen";
 
 const App = () => {
     const [confirmedNumber, setConfirmedNumber] = useState(0);
+
     const [screen, setScreen] = useState(Screens.startGame);
+
+    const [rounds, setRounds] = useState(0);
 
     const onStartGamePress = (number) => {
         setConfirmedNumber(number);
         setScreen(Screens.game);
+    };
+
+    const onGameOver = (rounds) => {
+        setScreen(Screens.gameOver);
+        setRounds(rounds);
     };
 
     return (
@@ -24,9 +33,13 @@ const App = () => {
             }
             {
                 screen === Screens.game &&
-                <GameScreen userNumber={confirmedNumber}/>
+                <GameScreen userNumber={confirmedNumber} onGameOver={onGameOver}/>
             }
-            </View>
+            {
+                screen === Screens.gameOver &&
+                <GameOverScreen rounds={rounds}/>
+            }
+        </View>
     );
 };
 
