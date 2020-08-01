@@ -18,7 +18,7 @@ const GameScreen = ({userNumber, onGameOver}) => {
 
     useEffect(() => {
         if (userNumber === guess) {
-            onGameOver(r => r + 1);
+            onGameOver(rounds);
         }
     });
 
@@ -32,7 +32,7 @@ const GameScreen = ({userNumber, onGameOver}) => {
         }
         setMin(guess + 1);
         setGuess(generateRandomNumber(guess + 1, max));
-        setRounds(rounds + 1);
+        setRounds(r => r + 1);
     };
 
     const onLowerPress = () => {
@@ -45,7 +45,7 @@ const GameScreen = ({userNumber, onGameOver}) => {
         }
         setMax(guess);
         setGuess(generateRandomNumber(min, guess));
-        setRounds(rounds + 1);
+        setRounds(r => r + 1);
     };
 
     return (
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         color: '#1AC8ED',
+        fontFamily: 'roboto-mono-bold'
     },
     container: {
         marginTop: 20,

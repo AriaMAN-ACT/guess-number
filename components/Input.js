@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginTop: 10,
         textAlign: 'center',
-        color: '#FCF7F8'
+        color: '#FCF7F8',
+        fontFamily: 'roboto-mono'
     },
     focusInput: {
         borderBottomColor: '#FCF7F8'

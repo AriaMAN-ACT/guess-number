@@ -74,13 +74,14 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         alignItems: 'center',
-        backgroundColor: '#222222'
+        backgroundColor: '#222222',
     },
     title: {
         fontSize: 24,
         color: '#1AC8ED',
         marginTop: 10,
-        marginBottom: 30
+        marginBottom: 30,
+        fontFamily: 'roboto-mono-bold'
     },
     inputContainer: {
         width: 300,
@@ -89,7 +90,8 @@ const styles = StyleSheet.create({
     },
     inputText: {
         color: '#FCF7F8',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'roboto-mono'
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -109,7 +111,9 @@ const styles = StyleSheet.create({
         maxWidth: '80%'
     },
     outputText: {
-        color: '#FCF7F8'
+        color: '#FCF7F8',
+        fontFamily: 'roboto-mono',
+        fontSize: 16
     }
 });
 

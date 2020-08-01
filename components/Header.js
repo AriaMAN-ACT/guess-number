@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: '#FCF7F8',
-        fontSize: 30
+        fontSize: 30,
+        fontFamily: 'roboto-mono-italic'
     }
 });
 

@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     },
     number: {
         color: '#D400F7',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'roboto-mono-bold'
     }
 });
 

@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     text: {
         color: '#FCF7F8',
         marginTop: 10,
-        fontSize: 16
+        fontSize: 16,
+        fontFamily: 'roboto-mono'
     }
 });
 
