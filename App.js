@@ -4,8 +4,8 @@ import {StyleSheet, View} from 'react-native';
 import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
-import Screens from "./models/Screens";
 import GameOverScreen from "./screens/GameOverScreen";
+import Screens from "./models/Screens";
 
 const App = () => {
     const [confirmedNumber, setConfirmedNumber] = useState(0);
@@ -24,6 +24,10 @@ const App = () => {
         setRounds(rounds);
     };
 
+    const onPlayAgainPress = () => {
+        setScreen(Screens.startGame);
+    };
+
     return (
         <View style={styles.screen}>
             <Header title="Guess Number"/>
@@ -37,7 +41,7 @@ const App = () => {
             }
             {
                 screen === Screens.gameOver &&
-                <GameOverScreen rounds={rounds}/>
+                <GameOverScreen rounds={rounds} userNumber={confirmedNumber} onPlayAgainPress={onPlayAgainPress}/>
             }
         </View>
     );
