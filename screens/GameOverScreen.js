@@ -9,7 +9,11 @@ const GameOverScreen = ({rounds, userNumber, onPlayAgainPress}) => {
         <View style={styles.screen}>
             <Card style={styles.container}>
                 <View style={styles.imageContainer}>
-                    <Image source={require('../assets/success.png')} style={styles.successImage} resizeMode="cover"/>
+                    <Image
+                        // source={require('../assets/success.png')}
+                        source={{
+                            uri: 'https://www.clipartmax.com/png/middle/179-1795386_patient-success-success-icon-png.png'
+                        }} style={styles.successImage} resizeMode="cover"/>
                 </View>
                 <Text style={styles.text}>Game Over In {rounds} Rounds!</Text>
                 <Text style={styles.text}>The Number Was:</Text>
