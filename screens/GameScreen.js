@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Alert, ScrollView, FlatList} from 'react-native';
+import {StyleSheet, Text, View, Alert, ScrollView, FlatList, KeyboardAvoidingView} from 'react-native';
 import {AntDesign} from '@expo/vector-icons';
 
 import NumberContainer from "../components/NumberContainer";
@@ -85,8 +85,7 @@ const styles = StyleSheet.create({
     },
     container: {
         marginTop: 20,
-        width: 300,
-        maxWidth: '80%',
+        width: '90%',
         alignItems: 'center'
     },
     buttonContainer: {

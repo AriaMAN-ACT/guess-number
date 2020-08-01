@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     },
     container: {
         alignItems: 'center',
-        width: 300,
-        maxWidth: '80%'
+        width: '90%',
+        maxWidth: 300,
     },
     text: {
         color: '#FCF7F8',

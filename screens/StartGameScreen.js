@@ -1,5 +1,15 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableWithoutFeedback, Keyboard, Alert, StyleSheet} from 'react-native';
+import {
+    View,
+    Text,
+    TouchableWithoutFeedback,
+    Keyboard,
+    Alert,
+    Dimensions,
+    ScrollView,
+    StyleSheet,
+    KeyboardAvoidingView
+} from 'react-native';
 
 import Card from "../components/Card";
 import Input from "../components/Input";
@@ -75,7 +85,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         alignItems: 'center',
-        backgroundColor: '#222222',
+        backgroundColor: '#222222'
     },
     title: {
         fontSize: 24,
@@ -85,8 +95,7 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-mono-bold'
     },
     inputContainer: {
-        width: 300,
-        maxWidth: '80%',
+        width: '90%',
         alignItems: 'center'
     },
     inputText: {
@@ -96,13 +105,12 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: 'row',
-        width: '50%',
-        minWidth: 200,
+        width: '90%',
         justifyContent: 'space-between',
         paddingHorizontal: 15
     },
     button: {
-        width: '40%',
+        width: (Dimensions.get('window').width - 140) * 0.75 / 2,
         minWidth: 80
     },
     outputContainer: {
