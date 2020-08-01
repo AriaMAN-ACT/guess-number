@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, Button, TouchableWithoutFeedback, Keyboard, Alert, StyleSheet} from 'react-native';
+import {View, Text, TouchableWithoutFeedback, Keyboard, Alert, StyleSheet} from 'react-native';
 
 import Card from "../components/Card";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
+import MainButton from "../components/MainButton";
 
 const StartGameScreen = ({onStartGamePress}) => {
     const [number, setNumber] = useState('');
@@ -41,7 +42,7 @@ const StartGameScreen = ({onStartGamePress}) => {
             <Card style={styles.outputContainer}>
                 <Text style={styles.outputText}>You Selected:</Text>
                 <NumberContainer>{confirmedNumber}</NumberContainer>
-                <Button title="START GAME" onPress={() => onStartGamePress(confirmedNumber)}/>
+                <MainButton onPress={() => onStartGamePress(confirmedNumber)}>START GAME</MainButton>
             </Card>
         );
     }
@@ -56,10 +57,10 @@ const StartGameScreen = ({onStartGamePress}) => {
                            editable={!isConfirm} onSubmitEditing={onConfirmPress}/>
                     <View style={styles.buttonContainer}>
                         <View style={styles.button}>
-                            <Button title="Reset" color="#058ED9" onPress={onResetPress}/>
+                            <MainButton onPress={onResetPress}>Reset</MainButton>
                         </View>
                         <View style={styles.button}>
-                            <Button title="Confirm" color="#058ED9" onPress={onConfirmPress}/>
+                            <MainButton onPress={onConfirmPress}>Confirm</MainButton>
                         </View>
                     </View>
                 </Card>

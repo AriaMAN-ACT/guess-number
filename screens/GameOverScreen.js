@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, Button, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 
 import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
+import MainButton from "../components/MainButton";
 
 const GameOverScreen = ({rounds, userNumber, onPlayAgainPress}) => {
     return (
@@ -18,7 +19,7 @@ const GameOverScreen = ({rounds, userNumber, onPlayAgainPress}) => {
                 <Text style={styles.text}>Game Over In {rounds} Rounds!</Text>
                 <Text style={styles.text}>The Number Was:</Text>
                 <NumberContainer>{userNumber}</NumberContainer>
-                <Button title="Play Again" onPress={onPlayAgainPress}/>
+                <MainButton onPress={onPlayAgainPress}>Play Again</MainButton>
             </Card>
         </View>
     );
